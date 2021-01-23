@@ -1,4 +1,8 @@
 $(() => {
+  /************/
+  /*  UD 1.2  */
+  /************/
+
   // Horizontal
   $('div#container ul#selected-plays > li').addClass('horizontal');
 
@@ -23,4 +27,19 @@ $(() => {
   // Highlight
   /* Plays referred to Henry (elements that contains 'Henry' but don't have children, so the selector only selects the plays instead of all parents elements) */
   $('table:first *:contains(Henry):not(:has(*))').addClass('highlight');
+
+  /************/
+  /*  UD 1.3  */
+  /************/
+  // Highlight (history td's)
+  $('.highlight').next('td').addClass('highlight');
+
+  // Highlight (cols after first one containing 'et', just from the first table)
+  $('table')
+    .first() // First table
+    .find('tr') // Get rows
+    .has(':contains(et)') // Filter to only get rows that contains 'et'
+    .find('td') // Get td of these rows
+    .not(':first') // But not the first cell
+    .addClass('highlight'); // Add highlight class to the rest
 });
