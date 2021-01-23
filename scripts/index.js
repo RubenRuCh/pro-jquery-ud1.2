@@ -40,6 +40,6 @@ $(() => {
     .find('tr') // Get rows
     .has(':contains(et)') // Filter to only get rows that contains 'et'
     .find('td') // Get td of these rows
-    .not(':first') // But not the first cell
+    .not(':nth-child(1)') // But not the first cell (of every row)
     .addClass('highlight'); // Add highlight class to the rest
 });
